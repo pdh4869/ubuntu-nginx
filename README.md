@@ -1,4 +1,4 @@
-# Install nginx into ubuntu
+d# Install nginx into ubuntu
 <hr />
 
 ## ubuntu pull from docker hub, run 
@@ -19,6 +19,7 @@ apt install nginx
 
 ## Install using Dockerfile 
 ```
+// Dockefile
 FROM ubuntu:22.04
 
 RUN apt update
@@ -39,6 +40,12 @@ CMD ["nginx"]
 # 호스트와 80, 443번 포트 번호를 연결
 EXPOSE 80
 EXPOSE 443
+
+// build & run
+sudo docker build -t ubuntu-nginx:0.1.0 . -f Dockerfile   // . 필수로 작성
+sudo docker run -itd --name u-nginx -p 8002:80 d7fbd60033eb   // 이미지 id
+
+sudo docker exec -it u-nginx bash  // bash shell 진입하여 확인
 ```
 
 <hr />
